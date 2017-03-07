@@ -181,7 +181,7 @@ b=kV_A+I_0
 \hline
 \end{tabular}
 
-拟合可以得到$b=100.99k-9\times 10^{-5}$根据(\ref{kb})式可得，$V_A=100.99 \rm{V}$符合查阅相关资料得到的经典值100V
+拟合可以得到$b=100.99k-9\times 10^{-5},R^2=0.99998$根据(\ref{kb})式可得，$V_A=100.99 \rm{V}$符合查阅相关资料得到的经典值100V
 
 \section{二极管微变等效电路直流电压和交流电流的研究}
 \subsection{直流电压的研究}
@@ -246,4 +246,11 @@ $R/\Omega$&$i/\rm{mA}$&$R/\Omega$&$i/\rm{mA}$&$R/\Omega$&$i/\rm{mA}$&$R/\Omega$&
 \caption{$V_{ce},V_{be},I_b,I_c$及$\frac{I_c}{I_b}$变化曲线}
 \label{complex}
 \end{figure}
+\section{总结}
+\subsection{仿真时遇到的问题}
+仿真时对交流参数进行仿真的时候没有找到合适的自动仿真的选项，因此采用示波器手动读取相关参数。仿真时没有遇到其他问题
+\subsection{收获}
+客观了解了晶体管和二极管的工作特性，晶体管放大电路的各个可能的公共状态。同时测试了晶体管的$V_A$参数  
+
+同时学习了Multisim的相关使用方法包括各种仿真参数模型的测试，电路的搭建和相关系数的测试等知识
 \end {document}
