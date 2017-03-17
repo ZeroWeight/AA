@@ -79,9 +79,9 @@ $$I_c=221.24I_b-5.5308(\rm{\mu A})@U_{ce}=8\rm{V},R^2=1,\beta=221.24$$
 \subsubsection{$I_{CQ}=1\rm{mA}$时}
 此时有，$I_{BQ}=\frac{I_{CQ}}{\beta}=4.65\rm{\mu A},I_{EQ}=\frac{(1+\beta)I_{CQ}}{\beta}=1\rm{mA}$ 并进一步得到$U_{EQ}=1.2\rm{V},U_{BQ}=U_{EQ}+U_{BEQ}=1.2+0.7=1.9\rm{V}$,于是可以估计$R_{b1}=\frac{V_{CC}-U_{BQ}}{U_{BQ}}R_{b2}=\frac{10.1}{1.9}\times15\rm{k}$$\Omega=79\rm{k}$$\Omega$并进一步得到$R_W=59\rm{k}$$\Omega$$,U_{CQ}=8.7\rm{V}$
 
-经过进一步的计算，可以得到$R_o=3.3\rm{k}$$\Omega$,$r_{be}=100\Omega+\frac{26\rm{mV}}{4.65\rm{\mu A}}=5.7k$$\Omega,R_i=r_{be}//R_{b2}//R_{b1}=3.9k$$\Omega,\dot{A}_u=\frac{\beta(R_o//R_L)}{r_{be}}\frac{R_i}{R_i+R_s}=49.95$发现和前文的数量级估算是符合的。
+经过进一步的计算，可以得到$R_o=3.3\rm{k}$$\Omega$,$r_{be}=100\Omega+\frac{26\rm{mV}}{4.65\rm{\mu A}}=5.7k$$\Omega,R_i=r_{be}//R_{b2}//R_{b1}=3.9k$$\Omega,\dot{A}_u=\frac{\beta(R_o//R_L)}{r_{be}}=75.57$发现和前文的数量级估算是符合的。
 \subsubsection{$I_{CQ}=2\rm{mA}$时}
-此时同上节重新计算，得到$I_{BQ}=9.30\rm{\mu A},I_{EQ}=2\rm{mA},U_{EQ}=2.4\rm{V},U_{BQ}=3.1\rm{V},R_{b1}=43\rm{k}$$\Omega,R_W=23\rm{k}$$\Omega,R_o=3.3\rm{k}$$\Omega$,$r_{be}=2.9k$$\Omega,R_i=2.3k$$\Omega,\dot{A}_u=79.43,U_{CQ}=5.4\rm{V}$发现和前文的数量级估算是符合的。
+此时同上节重新计算，得到$I_{BQ}=9.30\rm{\mu A},I_{EQ}=2\rm{mA},U_{EQ}=2.4\rm{V},U_{BQ}=3.1\rm{V},R_{b1}=43\rm{k}$$\Omega,R_W=23\rm{k}$$\Omega,R_o=3.3\rm{k}$$\Omega$,$r_{be}=2.9k$$\Omega,R_i=2.3k$$\Omega,\dot{A}_u=148.5,U_{CQ}=5.4\rm{V}$发现和前文的数量级估算是符合的。
 \subsection{仿真测试}
 \subsubsection{静态工作点测试}
 如图\ref{circuit}在Multisim上搭建电路，将交流源置零，调整$R_W$直到$I_{CQ}=1\rm{mA}$以及$I_{CQ}=2\rm{mA}$，得到如图\ref{1}和图\ref{2}的电路静态工作点参数
@@ -99,11 +99,11 @@ $$I_c=221.24I_b-5.5308(\rm{\mu A})@U_{ce}=8\rm{V},R^2=1,\beta=221.24$$
 \hline
 \tabincell{c}{$I_{CQ}/\rm{mA}$}& \tabincell{c}{$\dot{A}_u$}& \tabincell{c}{$R_i/\rm{k}$$\Omega$} & \tabincell{c}{无负载\\ $V_{oo}/\rm{mV}$} & \tabincell{c}{$R_0/\rm{k}$$\Omega$}&\tabincell{c}{失真度}&\tabincell{c}{$f_L/kHz$}&\tabincell{c}{$f_H/kHz$}\\
 \hline
-1.00&50.06&3.88&572.879&3.2&0.04603&0.1346&24269.3\\
+1.00&74.853&3.88&572.879&3.2&0.04603&0.1346&24269.3\\
 \hline
-2.00&76.63&2.19&870.245&3.095&0.02686&0.25629&17592.4\\
+2.00&144.5&2.19&870.245&3.095&0.02686&0.25629&17592.4\\
 \hline
-\tabincell{c}{2.00\\ （射极电阻改变）}&7.344&9.87&85.379&16.72&0.00052&0.0193254&22272\\
+\tabincell{c}{2.00\\ （射极电阻改变）}&9.3&9.87&85.379&16.72&0.00052&0.0193254&22272\\
 \hline
 \end{tabular}
 \subsubsection{射极电阻对动态特性的影响}
