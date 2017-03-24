@@ -5,6 +5,7 @@
 \usepackage{graphicx}
 \usepackage{wrapfig}
 \usepackage{listings}
+\usepackage{multicol}
 \newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
 \title{实验一\ \ 单管放大电路仿真及实验}
 \author{张蔚桐\ 2015011493\ 自55}
@@ -41,7 +42,10 @@
 \end{figure}
 在图\ref{Tgeneral}中标识了在$U_{ce}=2\rm{V}$和$U_{ce}=8\rm{V}$下，$I_c$随着$I_b$的变化情况，具体来说可以总结为下表
 \\
-
+\begin{table}
+\centering
+\caption{对$\beta$的仿真}
+\label{b_simu}
 \begin{tabular}{|c|c|c|}
 \hline
 \tabincell{c}{$I_b/\rm{\mu A}$}& \tabincell{c}{$I_c/\rm{mA}@U_{ce}=2\rm{V}$}& \tabincell{c}{$I_c/\rm{mA}@U_{ce}=8\rm{V}$}\\
@@ -67,6 +71,7 @@
 10&2.0880 &2.2097 \\
 \hline
 \end{tabular}
+\end{table}
 \\
 
 于是可以对两种情况下的$I_c$和$I_b$做直线拟合得到
@@ -94,7 +99,10 @@ $$I_c=221.24I_b-5.5308(\rm{\mu A})@U_{ce}=8\rm{V},R^2=1,\beta=221.24$$
 \subsubsection{动态工作点测试}
 将交流源设置为$V_{pp}=20\rm{mV},f=10kHz$的正弦信号，进行测试，针对$I_{CQ}=1\rm{mA}$和$I_{CQ}=2\rm{mA}$时，按照题目要求经过仿真测试可得如下结果，其中前两个情况的bode图如图\ref{bode1}\ref{bode2}所示。可以看出，和理论计算情况基本相符。
 \\
-
+\begin{table}
+\centering
+\caption{仿真实验结果}
+\label{simu}
 \begin{tabular}{|c|c|c|c|c|c|c|c|}
 \hline
 \tabincell{c}{$I_{CQ}/\rm{mA}$}& \tabincell{c}{$\dot{A}_u$}& \tabincell{c}{$R_i/\rm{k}$$\Omega$} & \tabincell{c}{无负载\\ $V_{oo}/\rm{mV}$} & \tabincell{c}{$R_0/\rm{k}$$\Omega$}&\tabincell{c}{失真度}&\tabincell{c}{$f_L/kHz$}&\tabincell{c}{$f_H/kHz$}\\
@@ -106,6 +114,7 @@ $$I_c=221.24I_b-5.5308(\rm{\mu A})@U_{ce}=8\rm{V},R^2=1,\beta=221.24$$
 \tabincell{c}{2.00\\ （射极电阻改变）}&9.3&9.87&85.379&16.72&0.00052&0.0193254&22272\\
 \hline
 \end{tabular}
+\end{table}
 \subsubsection{射极电阻对动态特性的影响}
 按照实验要求，将电容$C_E$改为与$R_{E2}$并联，测量此时放大电路在静态工作点$I_{CQ}=2\rm{mA}$ 下的$\dot{A}_{u_i}$，实验用电路图显而易见，具体数据记录在上表中
 \begin{figure}
@@ -213,5 +222,162 @@ $$I_c=221.24I_b-5.5308(\rm{\mu A})@U_{ce}=8\rm{V},R^2=1,\beta=221.24$$
 2. 放大电路输入信号$U_i$ 应无直流分量，即上、下半周对称的信号，信号幅值以示波器测试值为准
 
 3. 测试时首先要保证静态工作点符合要求。用示波器监视放大器输出波形，在保证输出波形不失真的情况下测试。
+\clearpage
+\section{实验记录}
+\subsection{三极管实验特性的测量}
+如图\ref{testBJT}所示，三极管在$\Delta i_b =5 \rm {\mu A}$时可以得到$\Delta i_c=1.05\rm{mA}$，计算得到$\beta=\frac{\Delta i_c}{\Delta i_b}=210$
+\subsection{三极管不同静态工作电流时的测试}
+如表\ref{A},\ref{R}完成了三极管在不同静态工作电流$I_c=1\rm{mA}$和$I_c=2\rm{mA}$时的电路相关参数的情况\\
+\begin{table}
+\centering
+\caption{对增益的测量}
+\label{A}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\tabincell{c}{$I_{CQ}/\rm{mA}$}& \tabincell{c}{$U_i\rm/{mV}$峰值} & \tabincell{c}{$U_i\rm/{mV}$谷值}&\tabincell{c}{$U_o\rm/{mV}$峰值}&\tabincell{c}{$U_o\rm/{mV}$谷值}& \tabincell{c}{$\dot{A}_u$}\\
+\hline
+1.00&6.550&6.550&457.5&500.0&73.1\\
+\hline
+2.00&5.35&5.625&725&750&130.8\\
+\hline
+2.00(射级电阻改接)&8.75&7.925&81.25&79.75&9.685\\
+\hline
+\end{tabular}
+\caption{对输入电阻，输出电阻和静态电阻的测量}
+\label{R}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\tabincell{c}{$I_{CQ}/\rm{mA}$}& \tabincell{c}{$R_i/\mathrm{k}\Omega$} & \tabincell{c}{$R_o/\mathrm{k}\Omega$}&\tabincell{c}{$U_o/\rm{mV}$}& \tabincell{c}{$R_w/k\Omega$}\\
+\hline
+1.00&4.46&3.3&781.2&58.8\\
+\hline
+2.00&2.92&3.08&1131.3&20.8\\
+\hline
+2.00(射级电阻改接)&10.32&3.35&131.25&20.8\\
+\hline
+\end{tabular}
+\end{table}
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{scope_10.png}
+\caption{对$\beta$的测量}
+\label{testBJT}
+\includegraphics[width=\textwidth]{scope_14.png}
+\caption{电路对波形的放大示意}
+\label{exppic}
+\end{figure}
+\subsection{三极管频率特性的测试}
+本实验中，对三极管的频率特性进行了细致的测试，先列出两种情况的最高频率和最低频率如表\ref{frec}所示
 
+同时，如表\ref{tablef1}，\ref{tablef2}所示，为三极管在两种状态下的辐频特性和相频特性，得到图\ref{bode1exp}，\ref{bode2exp}的幅相特性（图中频率为分贝值）
+
+限于篇幅，有关频域特性问题的进一步讨论在课程论文中阐述
+\begin{table}
+\centering
+\caption{放大电路的工作最高频率和最低频率}
+\label{frec}
+\begin{tabular}{|c|c|c|}
+\hline
+\tabincell{c}{$I_{CQ}/\rm{mA}$}& \tabincell{c}{$f_L/\rm{kHz}$} & \tabincell{c}{$f_H/\rm{kHz}$}\\
+\hline
+1.00&0.105&280\\
+\hline
+2.00&0.170&170\\
+\hline
+\end{tabular}
+\begin{multicols}{2}
+\caption{$I_{CQ}=1\rm{mA}$时的辐频相频特性}
+\label{tablef1}
+\begin{tabular}{|c|c|c|}
+\hline
+\tabincell{c}{$f/\rm{Hz}$}& \tabincell{c}{$|\dot{A}|$} & \tabincell{c}{$\phi$}\\
+\hline
+$10^{0}$&0.9875&-89.28\\
+\hline
+$10^{0.5}$&2.1125&-93.8\\
+\hline
+$10^{1}$&5.2375&-97.2\\
+\hline
+$10^{1.5}$&14.2875&-111.82\\
+\hline
+$10^{2}$&32.125&-126.04\\
+\hline
+$10^{2.5}$&43.875&-157.61\\
+\hline
+$10^{3}$&47.875&-159.09\\
+\hline
+$10^{3.5}$&48.25&-166.23\\
+\hline
+$10^{4}$&48.375&-173.41\\
+\hline
+$10^{4.5}$&48.125&-180.17\\
+\hline
+$10^{5}$&45.000&-188.56\\
+\hline
+$10^{5.5}$&32.250&-223.5\\
+\hline
+$10^{6}$&12.6625&-270.5\\
+\hline
+$10^{6.5}$&4.25&---\\
+\hline
+$10^{7}$&1.325&---\\
+\hline
+\end{tabular}
+\caption{$I_{CQ}=2\rm{mA}$时的辐频相频特性}
+\label{tablef2}
+\begin{tabular}{|c|c|c|}
+\hline
+\tabincell{c}{$f/\rm{Hz}$}& \tabincell{c}{$|\dot{A}|$} & \tabincell{c}{$\phi$}\\
+\hline
+$10^{0}$&0.5025&-59.04\\
+\hline
+$10^{0.5}$&1.925&-86.52\\
+\hline
+$10^{1}$&7.650&-94.68\\
+\hline
+$10^{1.5}$&16.100&-101.0\\
+\hline
+$10^{2}$&38.000&-124.09\\
+\hline
+$10^{2.5}$&62.5&-150.71\\
+\hline
+$10^{3}$&70.5&-167.60\\
+\hline
+$10^{3.5}$&72.5&-178.02\\
+\hline
+$10^{4}$&73.00&-183\\
+\hline
+$10^{4.5}$&72.00&-188.73\\
+\hline
+$10^{5}$&64.00&-206.03\\
+\hline
+$10^{5.5}$&36.00&-230.8\\
+\hline
+$10^{6}$&13.5&-263.2\\
+\hline
+$10^{6.5}$&4.5&---\\
+\hline
+$10^{7}$&1.6&---\\
+\hline
+\end{tabular}
+\end{multicols}
+\end{table}
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{bode1exp.jpg}
+\caption{$I_{CQ}=1\rm{mA}$，实验测得bode图}
+\label{bode1exp}
+\includegraphics[width=\textwidth]{bode1exp.jpg}
+\caption{$I_{CQ}=2\rm{mA}$，实验测得bode图}
+\label{bode2exp}
+\end{figure}
+\section{实验总结}
+\subsection{数据分析与比较}
+三个实验中放大倍数、输入电阻和输出电阻值均较为吻合。选做任务和必做任务相比，减小了发射极电阻，以牺牲电压放大倍数为代价提高了电路的稳定性；输入电阻增大，输出电阻不变。
+\subsection{电路故障与分析解决}
+本次试验较为顺利，没有出现电路故障。
+\subsection{发射极电阻对放大电路动态参数的影响}
+增加发射极电阻使电路产生了交、直流负反馈，电压放大倍数降低，但增加了放大电路的稳定性，增大输入、输出电阻，使电路的通频带被展宽。
+\subsection{从控制理论角度对放大电路的研究和矫正}
+在实验室老师的指导下完成了这方向的进一步研究和课程论文的写作工作
 \end{document}
