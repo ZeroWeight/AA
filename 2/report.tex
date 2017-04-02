@@ -73,7 +73,7 @@ $I=\frac{U_b}{R_2}=0.206\rm{mA}$并进一步得到上拉电阻阻值为$\frac{V_
 \subsection{性能指标的改进}
 我们希望在这个电路中能够提供较大的$A_u$,从理论上进行分析可以得到，该电路的$A_u=-\frac{\beta(R_c//R_L)}{r_{be}}$因此为实现目标我们将$R_c$从3.3$\mathrm{k}\Omega$提升至5$\mathrm{k}\Omega$，从理论上进行计算，则可得到$A_u'=-185$得到了上升
 
-如图\ref{bjtc1}对电路进行改进，其中两个滑动变阻器的取值和图\ref{bjtc}中定值电阻的取值是相同的没有影响，可以得到如图\ref{bjtA1}的电压波形曲线，仿真测量的$A_u=-\frac{928+991}{5.16+5.45}=-180$明显得到了提升并和理论估算的值相近。同时，静态工作点没有发生变化
+如图\ref{bjtc1}对电路进行改进，其中两个滑动变阻器的取值和图\ref{bjtc}中定值电阻的取值是相同的没有影响，可以得到如图\ref{bjtA1}的电压波形曲线，仿真测量的$A_u'=-\frac{928+991}{5.16+5.45}=-180$明显得到了提升并和理论估算的值相近。同时，静态工作点没有发生变化
 
 \begin{figure}
 \centering
@@ -100,10 +100,10 @@ $I=\frac{U_b}{R_2}=0.206\rm{mA}$并进一步得到上拉电阻阻值为$\frac{V_
 \centering
 \includegraphics[width=\textwidth]{1-43mA1k.jpg}
 \caption{失真消去电路}
-\label{dist1}
+\label{dist2}
 \includegraphics[width=\textwidth]{1-41.jpg}
 \caption{消去失真之后的波形}
-\label{Adist1} 
+\label{Adist2} 
 \end{figure}
 \subsection{实际电路的搭建}
 在电子技术实验课中已经完成了这方面电路的搭建，具体可见附录中的实验报告，这里就不再重复了
@@ -150,11 +150,13 @@ $I=\frac{U_b}{R_2}=0.206\rm{mA}$并进一步得到上拉电阻阻值为$\frac{V_
 \subsubsection{电压放大倍数的测定}
 首先进行理论估算，可以计算得到MOS管的$g_m=2\sqrt{I_{D0}I_{DSQ}}/U_{GS(th)}=11.13\rm{mA/V}$同时进一步得到电压放大倍数为$A_u=-g_m(R3//R_L)=-21$
 
-对图\ref{MOScir}的电路外接示波器和失真度仪进行测量，可以得到如图\ref{MOSA}的波形示意图，可以得到电路的仿真放大倍数为$-frac{189+207}{20}=-19.8$发现和理论计算还是很相近的
+对图\ref{MOScir}的电路外接示波器和失真度仪进行测量，可以得到如图\ref{MOSA}的波形示意图，可以得到电路的仿真放大倍数为$-\frac{189+207}{20}=-19.8$发现和理论计算还是很相近的
 \subsubsection{输入电阻的测定}
 首先进行理论计算，根据图\ref{MOScir}电路所示，可得输入电阻$R_i=\approx6\mathrm{M}\Omega$
 
-如图\ref{MOSri}采用半压法对输入电阻进行测量，发现在输入$V_{pk}=10\rm{mV}$即$V_{rms}=7.07\rm{mV}$时，外接电阻$R_8=78\mathrm{k}\Omega$时可得到输入分压为3.534mV，因此可得仿真测量输入电阻为$78\mathrm{k}\Omega$和理论计算有很大差异，后采用探针法进行测量，发现在$V_{pp}=20\rm{mV}$时，$I_{pp}=150\rm{nA}$输入电阻仍在$100\mathrm{k}\Omega$的数量级，考虑可能因为2N7000GS之间的漏电电流导致的小输入电阻。可以通过在输入端口并联分流电阻解决问题
+如图\ref{MOSri}采用半压法对输入电阻进行测量，发现在输入$V_{pk}=10\rm{mV}$即$V_{rms}=7.07\rm{mV}$时，外接电阻$R_8=78\mathrm{k}\Omega$时可得到输入分压为3.534mV，因此可得仿真测量输入电阻为$78\mathrm{k}\Omega$和理论计算有很大差异，后采用探针法进行测量，发现在$V_{pp}=20\rm{mV}$时，$I_{pp}=150\rm{nA}$输入电阻仍在$100\mathrm{k}\Omega$的数量级，考虑可能因为2N7000  GS之间的漏电电流导致的小输入电阻。可以通过在输入端口并联分流电阻解决问题
+
+经过并联电阻处理，得到的输入电阻和理论值计算就很相近了，这里略去
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{2-3AA.jpg}
@@ -167,7 +169,7 @@ $I=\frac{U_b}{R_2}=0.206\rm{mA}$并进一步得到上拉电阻阻值为$\frac{V_
 \subsection{输出电阻的测量}
 理论计算可以迅速得到输出电阻为$3\mathrm{k}\Omega$
 
-同样采取半压法进行仿真测试，首先测量空载时的输出电压有效值为222mV，外接滑动变阻器如图\ref{MOSro}，当调节至3$\mathrm{k}\Omega$时发现输出电压为空载输出电压的一半，因此可以得到仿真测试的输出电阻为3$mathrm{k}\Omega$和理论计算值相近
+同样采取半压法进行仿真测试，首先测量空载时的输出电压有效值为222mV，外接滑动变阻器如图\ref{MOSro}，当调节至3$\mathrm{k}\Omega$时发现输出电压为空载输出电压的一半，因此可以得到仿真测试的输出电阻为3$\mathrm{k}\Omega$和理论计算值相近
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{2-4Ro.jpg}
@@ -263,7 +265,7 @@ $I=\frac{U_b}{R_2}=0.206\rm{mA}$并进一步得到上拉电阻阻值为$\frac{V_
 \subsubsection{$U_{IO},I_{IO},I_{IB}$的测量}
 将电路中的输入电压置零，可得$U_O=30\rm{mV}$因此可以得到$U_{IO}=\frac{30m}{3\times10^5}=1\times10^{-8}$，因为仿真中专门为优化$U_{IO}$调整了电路参数，因此$U_{IO}$性能很好
 
-简单测量可以得到$I_{IO}=2.6\rm{nA},I_{IO}=1.21\mu\rm{A}$
+简单测量可以得到$I_{IO}=2.6\rm{nA},I_{B}=1.21\mu\rm{A}$
 \subsubsection{SR特性的测试}
 如图\ref{CSR}所示将输入电压源换位等值的方波，测量波形如图\ref{SR}所示。按照95\%定义的恢复时间计算，可得$SR=\frac{1.4723}{908.85m}=1.61\rm{V/S}$
 \begin{figure}
@@ -277,7 +279,7 @@ $I=\frac{U_b}{R_2}=0.206\rm{mA}$并进一步得到上拉电阻阻值为$\frac{V_
 \end{figure}
 \section{负反馈放大电路自激震荡的产生和消去}
 \subsection{自激震荡的产生}
-从图\ref{f}中可以看出3中搭建的运放是一个闭环稳定的系统，不能产生自激震荡，因此考虑在输出端并联一个电容降低稳定性，如图\ref{c1}所示，得到电路如图\ref{CC}所示，bode图如\ref{boode}所示，可以看出系统不论是相角裕度还是幅值裕度均不满足闭环稳定条件，系统闭环不稳定。仿真出现如图\ref{exp}的自激震荡，幅值大约为20mV，已经影响正常工作
+从图\ref{f}中可以看出3中搭建的运放是一个闭环稳定的系统，不能产生自激震荡，因此考虑在输出端并联一个电容降低稳定性，如图\ref{c1}所示，得到电路如图\ref{CC}所示，bode图如\ref{bode}所示，可以看出系统不论是相角裕度还是幅值裕度均不满足闭环稳定条件，系统闭环不稳定。仿真出现如图\ref{exp}的自激震荡，幅值大约为20mV，已经影响正常工作
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{4-c2.jpg}
@@ -297,7 +299,7 @@ $I=\frac{U_b}{R_2}=0.206\rm{mA}$并进一步得到上拉电阻阻值为$\frac{V_
 \label{exp}
 \end{figure}
 \subsection{自激震荡的消去}
-在输出上级联超前补偿，经过调整可以消去自激震荡到nV量级一下，已经和噪声基本相同了，如图\ref{slu}所示发现失真得到明显的消去
+在输出上级联超前补偿如图\ref{slu}所示，经过调整可以消去自激震荡到nV量级一下，已经和噪声基本相同了，发现失真得到明显的消去
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{ok.jpg}
