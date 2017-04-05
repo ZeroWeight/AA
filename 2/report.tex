@@ -5,11 +5,14 @@
 \usepackage{graphicx}
 \usepackage{wrapfig}
 \usepackage{listings}
+\usepackage{hyperref}
 \title{第二次仿真实验报告}
 \author{张蔚桐\ 2015011493\ 自55}
 \begin {document}
 \newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
 \maketitle
+\tableofcontents
+\clearpage
 \section{单管BJT放大电路的搭建和仿真测试}
 \subsection{静态工作点的调整}
 \begin{wrapfigure}{r}{0pt}
@@ -115,11 +118,10 @@ $I=\frac{U_b}{R_2}=0.206\rm{mA}$并进一步得到上拉电阻阻值为$\frac{V_
 \caption{2N7000输入特性测试}
 \label{2in}
 \end{wrapfigure}
-查找相关资料可以得到NMOS管2N7000的$U_{GS(th)}$在$U_{DS}=U_{GS},I_D=250\mu\rm{A}$的测试条件下最小值为1V，最大值为3V，经典值为2.1V，按照datasheet提供的测试条件搭建如图\ref{2in}所示的测试电路，对$V_2$进行直流仿真得到如图\ref{in}的输入特性曲线，按照测试条件进行标定可得$U_{GS(th)}=2.05V$和经典值相近
+查找相关资料可以得到NMOS管2N7000的$U_{GS(th)}$在$U_{DS}=U_{GS},I_D=250\mu\rm{A}$的测试条件下最小值为1V，最大值为3V，经典值为2.1V，按照datasheet提供的测试条件搭建如图\ref{2in}所示的测试电路，对$V_2$进行直流仿真得到如图\ref{in}的输入特性曲线，按照测试条件进行标定可得$U_{GS(th)}=2.50V$和经典值相近，小于最大值
 
-下面测量MOS管在$U_{GS}=2U_{GS(th)}$时的电流$I_{D0}$，如图\ref{transfer}所示是2N7000的传输特性测试电路图，仿真时将IV测试仪选择为NMOS管测量模式，将$U_{GS}$设置为$4.1\rm{V}\approx2U_{GS(th)}$可以得到如图\ref{transfer}所示的传输特性曲线，从曲线中我们可以看出恒流区电流$I_{D0}=I_{DS}=221.2908\rm{mA}$
+下面测量MOS管在$U_{GS}=2U_{GS(th)}$时的电流$I_{D0}$，如图\ref{transfer}所示是2N7000的传输特性测试电路图，仿真时将IV测试仪选择为NMOS管测量模式，将$U_{GS}$设置为$4.1\rm{V}\approx2U_{GS(th)}$可以得到如图\ref{transfer}所示的传输特性曲线，从曲线中我们可以看出恒流区电流$I_{D0}=I_{DS}=457\rm{mA}$
 
-同时，随$U_{GS}$变化的传输特性如图\ref{whole}所示
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{2-1in.jpg}
@@ -134,37 +136,35 @@ $I=\frac{U_b}{R_2}=0.206\rm{mA}$并进一步得到上拉电阻阻值为$\frac{V_
 \includegraphics[width=\textwidth]{2-3.jpg}
 \caption{实验电路图}
 \label{MOScir}
-\includegraphics[width=\textwidth]{2-2.jpg}
-\caption{2N7000传输特性}
-\label{whole} 
+\includegraphics[width=\textwidth]{2-3AA.jpg}
+\caption{电压增益的仿真波形曲线}
+\label{MOSA}
 \end{figure}
 \subsection{静态工作点的调整}
 如图\ref{MOScir}为所搭建的电路。下面进行对静态工作点的理论分析
 
-从NMOS管的特性方程可以得到$I_{DSQ}=\frac{I_{D0}}{U_{GS(th)}^2}(3.75-I_{DSQ}R_1-U_{GS(th)})^2$解得$I_{DSQ}=0.6\rm{mA}$
-并且有$U_G=3.75\rm{V},U_S=1.8\rm{V},U_D=13.19\rm{V}$
+从NMOS管的特性方程可以得到$I_{DSQ}=\frac{I_{D0}}{U_{GS(th)}^2}(3.75-I_{DSQ}R_1-U_{GS(th)})^2$解得$I_{DSQ}=0.44\rm{mA}$
+并且有$U_G=3.75\rm{V},U_S=1.32\rm{V},U_D=13.68\rm{V}$
 
-仿真电路测得实际静态工作电流为589$\mu\rm{A}$和理论计算值相近，同时测得$U_G=3.75\rm{V},U_S=1.65\rm{V},U_D=13.4\rm{V}$
+仿真电路测得实际静态工作电流为408$\mu\rm{A}$和理论计算值相近，同时测得$U_G=3.75\rm{V},U_S=1.22\rm{V},U_D=13.7\rm{V}$
 均和理论计算相差不大。测试电路图采用探针进行测量，为节省篇幅这里略去。
 \subsection{动态参数的测定}
 \subsubsection{电压放大倍数的测定}
-首先进行理论估算，可以计算得到MOS管的$g_m=2\sqrt{I_{D0}I_{DSQ}}/U_{GS(th)}=11.13\rm{mA/V}$同时进一步得到电压放大倍数为$A_u=-g_m(R3//R_L)=-21$
+首先进行理论估算，可以计算得到MOS管的$g_m=2\sqrt{I_{D0}I_{DSQ}}/U_{GS(th)}=11.34\rm{mA/V}$同时进一步得到电压放大倍数为$A_u=-g_m(R3//R_L)=-21.4$
 
-对图\ref{MOScir}的电路外接示波器和失真度仪进行测量，可以得到如图\ref{MOSA}的波形示意图，可以得到电路的仿真放大倍数为$-\frac{189+207}{20}=-19.8$发现和理论计算还是很相近的
+对图\ref{MOScir}的电路外接示波器和失真度仪进行测量，可以得到如图\ref{MOSA}的波形示意图，可以得到电路的仿真放大倍数为$-\frac{270+295}{20}=-28.2$发现和理论计算还是很相近的
 \subsubsection{输入电阻的测定}
-首先进行理论计算，根据图\ref{MOScir}电路所示，可得输入电阻$R_i=\approx6\mathrm{M}\Omega$
+首先进行理论计算，根据图\ref{MOScir}电路所示，可得输入电阻$R_i=6\mathrm{M}\Omega$
 
-如图\ref{MOSri}采用半压法对输入电阻进行测量，发现在输入$V_{pk}=10\rm{mV}$即$V_{rms}=7.07\rm{mV}$时，外接电阻$R_8=78\mathrm{k}\Omega$时可得到输入分压为3.534mV，因此可得仿真测量输入电阻为$78\mathrm{k}\Omega$和理论计算有很大差异，后采用探针法进行测量，发现在$V_{pp}=20\rm{mV}$时，$I_{pp}=150\rm{nA}$输入电阻仍在$100\mathrm{k}\Omega$的数量级，考虑可能因为2N7000  GS之间的漏电电流导致的小输入电阻。可以通过在输入端口并联分流电阻解决问题
-
-经过并联电阻处理，得到的输入电阻和理论值计算就很相近了，这里略去
+如图\ref{MOSri}采用半压法对输入电阻进行测量，发现在输入$V_{pk}=10\rm{mV}$即$V_{rms}=7.07\rm{mV}$时，外接电阻$R_8=6\mathrm{M}\Omega$时可得到输入分压为3.534mV，和理论计算相同
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{2-3AA.jpg}
-\caption{电压增益的仿真波形曲线}
-\label{MOSA}
 \includegraphics[width=\textwidth]{2-4Ri.jpg}
 \caption{放大电路输入电阻的测量}
 \label{MOSri}
+\includegraphics[width=\textwidth]{2-4Ro.jpg}
+\caption{放大电路输出电阻的测量}
+\label{MOSro}
 \end{figure}
 \subsection{输出电阻的测量}
 理论计算可以迅速得到输出电阻为$3\mathrm{k}\Omega$
@@ -172,27 +172,18 @@ $I=\frac{U_b}{R_2}=0.206\rm{mA}$并进一步得到上拉电阻阻值为$\frac{V_
 同样采取半压法进行仿真测试，首先测量空载时的输出电压有效值为222mV，外接滑动变阻器如图\ref{MOSro}，当调节至3$\mathrm{k}\Omega$时发现输出电压为空载输出电压的一半，因此可以得到仿真测试的输出电阻为3$\mathrm{k}\Omega$和理论计算值相近
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{2-4Ro.jpg}
-\caption{放大电路输出电阻的测量}
-\label{MOSro}
+\includegraphics[width=\textwidth]{2-4fh.jpg}
+\caption{上限截止频率的测试}
+\label{MOSfl}
 \includegraphics[width=\textwidth]{2-4AA.jpg}
 \caption{改进的输出电压放大倍数}
 \label{AAA}
 \end{figure}
 
 \subsubsection{频率响应的测试}
-采用$0.707A_{us}$作为上限截止频率和下限截止频率的标准。如图\ref{MOSfl}\ref{MOSfh}所示，可得上限截止频率约为435kHz，下限截止频率为40Hz
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{2-4fh.jpg}
-\caption{上限截止频率的测试}
-\label{MOSfl}
-\includegraphics[width=\textwidth]{2-4fl.jpg}
-\caption{下限截止频率的测试}
-\label{MOSfh}
-\end{figure}
+采用$0.707A_{us}$作为上限截止频率和下限截止频率的标准。如图\ref{MOSfl}所示，可得上限截止频率约为5MHz，下限截止频率为51Hz
 \subsection{性能指标的改进}
-希望提高电压放大倍数A，考虑到$A_u=-g_m(R3//R_L)$因此可以通过增大$R_3$来提高电压放大倍数，令$R_3=8\mathrm{k}\Omega$得到对应的电压放大倍数理论值为-34.66从理论上看的确得到了提升
+希望提高电压放大倍数A，考虑到$A_u=-g_m(R3//R_L)$因此可以通过增大$R_3$来提高电压放大倍数，令$R_3=7\mathrm{k}\Omega$得到对应的电压放大倍数理论值为-33.47从理论上看的确得到了提升
 
 实际仿真如图\ref{AAA}所示，可以测得电压放大倍数为$-\frac{343+328}{20}=-33.55$可以发现电压放大倍数的确得到了提升
 \subsection{失真的产生和消去}
