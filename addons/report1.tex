@@ -10,6 +10,9 @@
 \title{单管放大电路的系统辨识和控制器设计}
 \author{张蔚桐\ 2015011493\ 自55}
 \begin {document}
+\newenvironment{figurehere}
+{\def\@captype{figure}}
+{}
 \newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
 \maketitle
 \tableofcontents
@@ -35,7 +38,7 @@
 我们知道，一个线性系统可以从其bode图等频率响应图中估计出系统的传输函数。对于放大电路而言，由于静态工作点的设置使得静态工作电压远远大于输入的交变电压，因此整个系统完全可以在静态工作点附近进行微偏线性化进行线性模型等效。如图\ref{1},\ref{2}所示，测试电路中采用的输入电压峰峰值为10mV，静态工作点在V的量级。微变电压在静态电压的1\%量级上，采用线性模型进行估计所产生的误差是可以接受的。
 
 \section{实验测量}
-在电子技术实验中，在老师的指导下对单管放大电路的频率特性（辐频，相频特性）进行了研究。得到的实验结果如表\ref{tablef1},\ref{tablef2}所示，使用绘图软件绘制其辐频和相频特性曲线如图\ref{bode1}\ref{bode2}所示，其中横坐标采用的是频率的分贝数。从图中我们可以看出这两种静态工作点下的频率特性虽然有所差异，但是基本的模态是相同的，因此下文将就$I_{CQ}=1\rm{mA}$时的情况着重分析，至于$I_{CQ}=2\rm{mA}$时的情况将只给出结论
+在电子技术实验中，在老师的指导下对单管放大电路的频率特性（辐频，相频特性）进行了研究。得到的实验结果如表\ref{tablef1},\ref{tablef2}所示，使用绘图软件绘制其辐频和相频特性曲线如图\ref{bode1}\ref{bode2}所示，其中横坐标采用的是频率的分贝数。从图中我们可以看出这两种静态工作点下的频率特性虽然有所差异，但是基本的模态是相同的，因此下文将就$I_{CQ}=1\rm{mA}$时的情况着重分析，至于$I_{CQ}=2\rm{mA}$时的情况的分析可以同理推得
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{1.jpg}
@@ -134,7 +137,7 @@ $10^{7}$&1.6&---\\
 \label{bode2}
 \end{figure}
 \section{传递函数的估计}
-\section{传递函数形式的估计}
+\subsection{传递函数形式的估计}
 根据如图\ref{refin1}所示的折线化之后的bode图可以迅速得到两种情况下电路辐频特性的上升段和下降段的斜率为$\pm1$。表征单独考虑这一部分应当是一个一阶系统。同时，可以得到对于$I_{CQ}=1\rm{mA}$时的转折频率为46.93dB和106.9dB，
 根据图\ref{bode1}提示的相频特性可以通过控制理论知识迅速得到这不是一个最小相位系统，因此先通过最小相位系统确定符合辐频特性的传递函数再根据相位进行进一步的调整
 
@@ -152,7 +155,7 @@ G'(s)=K\frac{T_1s+1}{4.5\times10^{-3}s+1}\times\frac{T_2s+1}{4.5\times10^{-6}s+1
 \begin{equation}
 G(s)=K\frac{-T_1s+1}{4.5\times10^{-3}s+1}\times\frac{T_2s+1}{4.5\times10^{-6}s+1}, T_1>0,T_2>0
 \end{equation}
-\section{时间参数的估计}
+\subsection{时间参数的估计}
 由于辐频特性中没有提示其他的拐点，因此我们希望通过相频特性寻找$T_1,T_2$的合理估计值
 
 从控制理论我们可以知道，作为一个合理的近似，我们可以知道$G(s)$表达式中的左侧部分对高频特性影响较小，而右侧部分对低频特性影响较小，增益$k$不影响相频特性，因此我们分别对两个转折频率前后的频段进行研究
@@ -174,5 +177,91 @@ G(s)=K\frac{-s}{4.5\times10^{-3}s+1}\times\frac{1}{4.5\times10^{-6}s+1}, T_1>0,T
 因此可以得到在研究频段特性为
 \begin{equation}
 G(s)=\frac{-0.23s}{(4.5\times10^{-3}s+1)(4.5\times10^{-6}s+1)}
+\label{result}
 \end{equation}
+需要注意的是，式中的$s$并非角频率$j\omega$，而是$j\omega/2\pi=jf$
+\section{与理论计算的频率响应特性对比}
+根据《模拟电子技术基础》第四章的内容，我们对\ref{result}式进行进一步的标准化，变换为放大电路中经常出现的形式，即
+\begin{equation}
+G(s)=\frac{-51.1106\frac{s}{222.22}}{(1+\frac{s}{222.22})(1+\frac{s}{222222.22})}
+\label{new}
+\end{equation}
+从式\ref{new}中，基于有关频率响应的相关知识，可以知道放大电路的中频响应大约为$-51/\rm{V/V}$，同时低频截止频率约为$222.22\rm{Hz}$,高频截止频率约为$222222.22\rm{Hz}$，实验中测量得到低频截止频率为$f_L\approx100\rm{Hz}$，高频截止频率为$f_H\approx10^{5.5}\approx316227\rm{Hz}$，和通过上述分析得到的值相近，同时，也可看出我们估计的传递函数在形式上也和理论计算得到的相同
+
+进一步，我们可以计算模型中的相关参数来验证测量的准确性
+
+首先计算低频部分，容易知道电容$C_2$是决定低频特性的瓶颈，考虑这个电容两端的等效电阻可以得到
+\begin{equation}
+R_{eq}=(R_5+R_6) // \frac{80\mathrm{k}\Omega // 15 \mathrm{k}\Omega//R_s}{1+\beta} = 11.23\Omega
+\end{equation}
+其中$R_s=2\mathrm{k}\Omega$因此我们得到理论估算的低频截止频率为
+\begin{equation}
+f_L=\frac{1}{2\pi C_eR_{eq}}=301\rm{Hz}
+\end{equation}
+和实验测量得到的值以及通过估算传递函数得到的值在一个数量级上，在对数辐频特性上误差可以接受
+
+其次计算高频部分，我们假设三极管的交流等效模型采用单向化之后的混合$\pi$模型，并对电容参数进行了相当程度的简化，即如《模拟电子技术基础》第五版P191图4.2.2(c)所示，同时作为一个示范性的理论计算，我们假设$r_{b'e}=3\mathrm{k}\Omega,r_{bb'}=0$,于是可以得到
+\begin{equation}
+R_{eq}=r_{b'e}//((80\mathrm{k}\Omega//15\mathrm{k}\Omega//2\mathrm{k}\Omega)+R_e)=0.675\mathrm{k}\Omega
+\end{equation}
+我们希望通过高频特性估算单向化后混合$\pi$模型中的$C_{\pi '}$，因此得到方程
+\begin{equation}
+222222.222\rm{Hz}=f_H=\frac{1}{2\pi R_eqC_{\pi '}}
+\end{equation}
+得到$C_{\pi '}=1\rm{nF}$，和理论计算中经常取的接近800pF还是很接近的，说明模型，模电相关理论和控制系统相关理论是相互印证的
+\section{控制器的设计}
+\subsection{引言}
+模拟电子技术的知识告诉我们，如果希望展宽频带，则必须降低放大电路的中频增益，从经验上来讲，电路的“增益带宽积”在不改变电路核心结构和三极管的管型条件下是基本不变的，通过本章，希望能定性的给出一些证明
+\subsection{基本假设}
+因为控制系统的研究对象是模拟电路，因此，需要给出一个基本的，符合常理的假设：所有的控制器，应均为无源元件构成的二端网络。这条假设的合理性表现为，如果可以引入一个理想的有源经典控制器，如比例控制器P，则完全可以用这个比例控制器P完成放大电路的性能要求，被控系统的存在变得没有意义。
+
+综合考察基本假设中指定的控制器类型，可以选择两种最有典型代表性的控制器：PI（超前）和PD（滞后）控制器，其具体实现和传递函数如下所示
+\begin{multicols}{2}
+\subsubsection{超前矫正}
+\begin{figurehere}
+\centering
+\includegraphics[width=\columnwidth]{pd.jpg}
+\end{figurehere}
+传递函数
+\begin{equation}
+G(s)=\frac{R_2}{R_1+R_2}\frac{R_1Cs+1}{\frac{R_1R_2}{R_1+R_2}Cs+1}
+\end{equation}
+令
+$$\frac{R_1R_2}{R_1+R_2}C=T,1+\frac{R_1}{R_2}=\alpha>1$$
+得到
+\begin{equation}
+G(s)=\frac{1}{\alpha}\frac{\alpha Ts+1}{Ts+1}
+\end{equation}
+Bode图
+
+\begin{figurehere}
+\centering
+\includegraphics[width=\columnwidth]{bodepd.jpg}
+\end{figurehere}
+\subsubsection{滞后矫正}
+\begin{figurehere}
+\centering
+\includegraphics[width=\columnwidth]{pi.jpg}
+\end{figurehere}
+传递函数
+\begin{equation}
+G(s)=\frac{R_2Cs+1}{(R_1+R_2)Cs+1}
+\end{equation}
+令
+$$R_2C=T,1+\frac{R_1}{R_2}=\beta>1$$
+得到
+\begin{equation}
+G(s)=\frac{Ts+1}{\beta Ts+1}
+\end{equation}
+Bode图
+
+\begin{figurehere}
+\centering
+\includegraphics[width=\columnwidth]{bodepi.jpg}
+\end{figurehere}
+\end{multicols}
+
+为了简化之后的控制器设计和模型计算的过程，我们将采用EDA仿真软件进行仿真，同时在推导过程中认为系统和系统之间的互相不影响，即可以忽略前级的输出电阻和后级的输入电阻对当前模块的影响。这个假定的合理性在于，因为控制器的设计存在着自由度，我们可以通过调整使得系统和系统，网络和网络之间的耦合近似的符合这个假定。
+
+
 \end{document}
