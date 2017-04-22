@@ -91,7 +91,16 @@ $$R_i\frac{28.5\mathrm{mV}}{37.1\mu\mathrm{A}}=768\Omega$$
 \label{F}
 \end{figure}
 \section{电流并联负反馈的电路理论估计}
+\section{仿真分析}
+\subsection{静态工作点测量}
+按照题目中的要求搭建电路如图\ref{Q2}所示，首先对电路的静态工作点进行测量，得到$I_{CQ}=2.09\mathrm{mA},I_{DQ}=1.95\mathrm{mA}$，同时得到$U_{GDQ}=-4\mathrm{V},U_{CEQ}=3\mathrm{V}$满足题目中给定的要求.
+\subsection{动态工作特性测量}
+如图\ref{A2}所示测量电路的动态放大特性，得到负载开路的时候电路的动态放大倍数为$$A_{usf}=\frac{1885.3+1877.1\mathrm{mV}}{400\mathrm{mV}}=9.406$$
 
+进一步通过探针测量电路的输入输出电阻，如图\ref{R2}所示，可以得到电路的输入电阻为
+$$R_{if}=\frac{36.6\mathrm{mV}}{120\mu\mathrm{A}}=305\Omega$$
+同时，在负载端加$5.0\mathrm{k}\Omega$的电阻，测量输出电压峰峰值为2.25V，因此得到输出电阻为
+$$R_{of}=\frac{1885.3+1877.1-2250\mathrm{mV}}{449\mu\mathrm{A}}=3.36\mathrm{k}\Omega$$
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{Q2.jpg}
