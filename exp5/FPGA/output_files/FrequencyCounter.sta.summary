@@ -1,0 +1,77 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'CLK'
+Slack : -4.269
+TNS   : -118.593
+
+Type  : Slow Model Setup 'IN'
+Slack : -3.218
+TNS   : -29.270
+
+Type  : Slow Model Setup 'FCore:inst|sec'
+Slack : -0.350
+TNS   : -0.900
+
+Type  : Slow Model Hold 'CLK'
+Slack : -2.613
+TNS   : -2.613
+
+Type  : Slow Model Hold 'FCore:inst|sec'
+Slack : 0.439
+TNS   : 0.000
+
+Type  : Slow Model Hold 'IN'
+Slack : 0.499
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'CLK'
+Slack : -1.941
+TNS   : -71.689
+
+Type  : Slow Model Minimum Pulse Width 'IN'
+Slack : -1.777
+TNS   : -21.069
+
+Type  : Slow Model Minimum Pulse Width 'FCore:inst|sec'
+Slack : -0.742
+TNS   : -19.292
+
+Type  : Fast Model Setup 'CLK'
+Slack : -0.911
+TNS   : -14.217
+
+Type  : Fast Model Setup 'IN'
+Slack : -0.394
+TNS   : -2.456
+
+Type  : Fast Model Setup 'FCore:inst|sec'
+Slack : 0.570
+TNS   : 0.000
+
+Type  : Fast Model Hold 'CLK'
+Slack : -1.418
+TNS   : -1.418
+
+Type  : Fast Model Hold 'FCore:inst|sec'
+Slack : 0.126
+TNS   : 0.000
+
+Type  : Fast Model Hold 'IN'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'CLK'
+Slack : -1.380
+TNS   : -48.380
+
+Type  : Fast Model Minimum Pulse Width 'IN'
+Slack : -1.222
+TNS   : -14.222
+
+Type  : Fast Model Minimum Pulse Width 'FCore:inst|sec'
+Slack : -0.500
+TNS   : -13.000
+
+------------------------------------------------------------
