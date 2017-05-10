@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FrequencyCounter
-Tue May 09 23:03:46 2017
+Wed May 10 15:58:02 2017
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Full Version
 
 
@@ -44,7 +44,7 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue May 09 23:03:46 2017       ;
+; Analysis & Synthesis Status        ; Successful - Wed May 10 15:58:02 2017       ;
 ; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Full Version ;
 ; Revision Name                      ; FrequencyCounter                            ;
 ; Top-level Entity Name              ; Block                                       ;
@@ -200,8 +200,8 @@ applicable agreement for further details.
 ; Embedded Multiplier 9-bit elements          ; 0     ;
 ; Maximum fan-out node                        ; CLK   ;
 ; Maximum fan-out                             ; 47    ;
-; Total fan-out                               ; 467   ;
-; Average fan-out                             ; 2.43  ;
+; Total fan-out                               ; 480   ;
+; Average fan-out                             ; 2.50  ;
 +---------------------------------------------+-------+
 
 
@@ -228,7 +228,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Number of registers using Synchronous Load   ; 4     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 14    ;
+; Number of registers using Clock Enable       ; 27    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -248,10 +248,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |Block|FCore:inst|out[1]     ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |Block|FCore:inst|out[3]     ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |Block|FCore:inst|_num[0][1] ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Block|FCore:inst|_num[1][1] ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Block|FCore:inst|_num[2][3] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Block|FCore:inst|_num[2][1] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------+
 
 
@@ -270,7 +270,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.0 Build 156 04/24/2013 SJ Full Version
-    Info: Processing started: Tue May 09 23:03:45 2017
+    Info: Processing started: Wed May 10 15:58:01 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FrequencyCounter -c FrequencyCounter
 Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
 Info (12021): Found 1 design units, including 1 entities, in source file frequencycounter.v
@@ -292,7 +292,7 @@ Info (21057): Implemented 133 device resources after synthesis - the final resou
     Info (21061): Implemented 121 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 488 megabytes
-    Info: Processing ended: Tue May 09 23:03:46 2017
+    Info: Processing ended: Wed May 10 15:58:02 2017
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

@@ -15,10 +15,10 @@ reg [27:0] counter = 28'b0;
 always @ (posedge clk)
 begin
 //TODO: div the 50MHz clock to 1Hz
-	if(counter == 28'd22000000)
+	if(counter == 28'd25000000)
 	begin
 		sec <= ~sec;
-		counter = 28'b0;
+		counter = 28'b1;
 	end
 	else 
 		counter <= counter + 1'b1;
@@ -42,10 +42,7 @@ end
 always @ (posedge sec)
 begin
 //TODO: clear the output 
-num[0] <= _num[0];
-num[1] <= _num[1];
-num[2] <= _num[2];
-a <= ~a;
+a <= ~b;
 end
 
 always @ (posedge in)
@@ -72,7 +69,10 @@ begin
 	end
 	else
 	begin
-		b <= ~b;
+		b <= a;
+		num[0] <= _num[0];
+		num[1] <= _num[1];
+		num[2] <= _num[2];
 		_num[0] <= 4'b0001;
 		_num[1] <= 4'b0000;
 		_num[2] <= 4'b0000;
