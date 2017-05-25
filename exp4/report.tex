@@ -27,27 +27,30 @@ $$f_0=\frac{1}{2\pi RC}$$
 \end {figure}
 \end{multicols}
 \subsubsection{输出波形调试}
+\begin{multicols}{2}
 通过调整$R_w$，我们对输出的波形进行进一步的仿真调试，如图\ref{AC0}所示，可以看到$R_w=0$的时候电路不起振，$R_w=20\%R_{max}=10\mathrm{k}\Omega$的时候电路刚好起振，如图\ref{ACstart}所示。
 
 用示波器观测输出的波形，发现最大不失真输出电压波形大概在$R_w=40.0\%R_max=20.0\mathrm{k}\Omega$的时候取得，此时周期约为2.5ms，对应评论约为400Hz，输出电压峰值为10.35V左右，因为供电电压12v，可以看出输出性能还是很好的。对应的有效值为7.327V。输出的波形如图\ref{ACmax}所示。
-\begin {figure}
-\includegraphics [width=\textwidth]{0ac.pdf}
+\begin {figure}[H]
+\includegraphics [width=\columnwidth]{0ac.pdf}
 \caption{$R_w=0$时的输出波形}
 \label{AC0}
 \end {figure}
-\begin {figure}
+\end{multicols}
+\begin{multicols}{2}
+\begin {figure}[H]
 \centering
-\includegraphics [width=\textwidth]{startac.pdf}
+\includegraphics [width=\columnwidth]{startac.pdf}
 \caption{刚刚起振输出波形}
 \label{ACstart}
 \end {figure}
-\begin{figure}
+\begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{maxac.pdf}
+\includegraphics[width=\columnwidth]{maxac.pdf}
 \caption{输出最大不失真波形}
 \label{ACmax}
 \end{figure}
-\clearpage
+\end{multicols}
 \subsubsection{其他情况的调试}
 将两个二极管断开，$R_w$从小到大变化时，输出波形的变化情况如图\ref{20}-\ref{infi}所示，可以总结为如下几点
 \begin{enumerate}
@@ -166,17 +169,71 @@ $$T_+=\frac{2U_TR_2C}{U_Z-U_D}$$
 \caption{锯齿波发生电路}
 \label{tanCrit}
 \end {figure}
+\begin{multicols}{2}
 \subsubsection{输出波形仿真}
 从图\ref{tan}中我们可以看到，方波和锯齿波的0.10周期均为0.4315ms，这种变化源自于电阻取整之后引入的误差，锯齿波的上升时间为0.3222ms，下降时间为0.1093ms，下降时间和上升时间的比值稍大，考虑是电阻取整的影响，将电阻取值改变为$7\mathrm{k}\Omega$和$35\mathrm{k}\Omega$发现电路性能出现明显好转。
-\begin{figure}
+\begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{tan.pdf}
+\includegraphics[width=\columnwidth]{tan.pdf}
 \caption{锯齿波发生电路输出波形}
 \label{tan}
 \end{figure}
+\end{multicols}
+\clearpage
 \section{实验数据记录}
+\begin{multicols}{2}
 \subsection{正弦波发生电路}
+实验测得在$R_w=9.3\mathrm{k}\Omega$时电路起振，起振正弦波峰峰值为$V_{pp}=540\mathrm{mV}$，对应频率为416Hz。
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth,angle=0]{wave/IMG_0635.jpg}
+\caption{刚刚起振输出波形}
+\label{1}
+\end{figure}
+\end{multicols}
+\begin{multicols}{2}
+当$R_w=17.69\mathrm{k}\Omega$时电路出现最大不失真输出电压，峰峰值为$V_{pp}=20.62\mathrm{V}$，对应频率为423Hz
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth,angle=0]{wave/IMG_0636.jpg}
+\caption{最大不失真输出波形}
+\label{2}
+\end{figure}
+\end{multicols}
+\begin{multicols}{2}
 \subsection{方波——三角波发生电路}
+方波发生电路输出电压峰峰值为12V，方波正周期$208\mu\mathrm{s}$，负周期$198\mu\mathrm{s}$，分别对应三角波下降和上升时间，基本对称。三角波峰值为6.4V
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth,angle=-90]{wave/IMG_0643.jpg}
+\caption{方波输出波形}
+\label{3}
+\end{figure}
+\end{multicols}
+\begin{multicols}{2}
 \subsection{滞环特性电路的测试}
+对滞环特性电路进行调试的过程中发现，电路的正向输出为5.6V，反向输出为-6.1V。$U_{T+}=3.1\mathrm{V},U_{T+}=-2.9\mathrm{V}$
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth,angle=-90]{wave/IMG_0660.jpg}
+\caption{滞环特性输出波形}
+\label{4}
+\end{figure}
+\end{multicols}
+\begin{multicols}{2}
 \subsection{锯齿波发生电路}
+采用$R_1=5.67\mathrm{k}\Omega,R_2=31.2\mathrm{k}\Omega$进行测试（滑动变阻器给出），得到总周期$400\mu\mathrm{s}$,上升时间为$333.33\mu\mathrm{s}$，下降时间为$66.67\mu\mathrm{s}$，正好满足题目要求。
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth,angle=-90]{wave/IMG_0659.jpg}
+\caption{锯齿波输出波形}
+\label{5}
+\end{figure}
+\end{multicols}
+\section{总结}
+本次实验让我对正弦波，方波，三角波和锯齿波电路更加熟悉，对于波形产生的原理有了一定的了解。在
+这个过程中，我更加理解了理论模型、仿真测试和实际电路的联系和区别，并学会分析三者之间产生误差的
+原因。
+
+本次试验较为顺利，没有出现电路故障。利用实验室的myDac已经在课前完成了电路的搭建和测试，实验流程非常顺利。
 \end{document}
