@@ -1,0 +1,17 @@
+Quartus II Archive log --	C:/Users/Zero Weight/Documents/AA/exp5/FPGA/FrequencyCounter.qarlog
+
+Archive:	C:/Users/Zero Weight/Documents/AA/exp5/FPGA/FrequencyCounter.qar
+Date:		Wed May 31 00:15:40 2017
+Quartus II 64-Bit		13.0.0 Build 156 04/24/2013 SJ Full Version
+
+	=========== Files Selected: ===========
+C:/Users/Zero Weight/Documents/AA/exp5/FPGA/Block.bdf
+C:/Users/Zero Weight/Documents/AA/exp5/FPGA/FrequencyCounter.qpf
+C:/Users/Zero Weight/Documents/AA/exp5/FPGA/FrequencyCounter.qsf
+C:/Users/Zero Weight/Documents/AA/exp5/FPGA/FrequencyCounter.v
+C:/Users/Zero Weight/Documents/AA/exp5/FPGA/incremental_db/compiled_partitions/FrequencyCounter.db_info
+c:/altera/13.0/quartus/bin64/assignment_defaults.qdf
+	======= Total: 6 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
